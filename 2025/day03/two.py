@@ -6,7 +6,7 @@ from timeit import repeat
 
 
 WIDTH = 12
-FILE = join(dirname(__file__), sys.argv[-1])
+FILE = join(dirname(__file__), '../../data/2025/day03/', sys.argv[-1])
 with open(FILE) as f:
     data = [line.strip() for line in f]
 
