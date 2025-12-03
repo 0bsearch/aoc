@@ -1,25 +1,19 @@
+data = File.open(
+  File.expand_path("../../../data/2025/day01/#{ARGV[-1]}", __FILE__),
+  'rt'
+) { |f| data = f.readlines() }
+
+
 def count_zeros(instructions)
-  current = 50
-  clicks = 0
+  position = 50
 
-  instructions.map(&:strip).each do |instruction|
-    sign = instruction[0] == 'R' ? +1 : -1
-    rotation = instruction[1..].to_i
+  instructions
+    .each{ |s| s.sub!(/[LR]/, 'L' => '-', 'R' => '+') }
+    .map!( &:to_i )
+    .map!{ |i| (position += i) }
+    .count{ |i| i % 100 == 0 }
 
-    current += sign * rotation
-    current %= 100
-
-    if current == 0
-      clicks += 1
-    end
-
-  end
-  return clicks
 end
 
 
-if __FILE__ == $0
-  data = File.open(ARGV[-1], 'rt') { |f| data = f.readlines() }
-  puts(count_zeros(data))
-end
-  
+puts(count_zeros(data))

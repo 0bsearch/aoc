@@ -39,11 +39,11 @@ def mod(shifts):
         start = current
 
         sign = -1 if move[0] == 'L' else 1
-        step = int(move[1:])
-        clicks = step // 100
-        passes += clicks
-        step = sign * (step % 100)
-        current += step
+        steps = int(move[1:])
+        full_rotations, steps = divmod(steps, 100)
+        passes += full_rotations
+        steps *= sign
+        current += steps
 
         if not (0 < current < 100) and start != 0:
             passes += 1
