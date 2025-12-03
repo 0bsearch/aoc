@@ -1,7 +1,6 @@
-data = File.open(
+data = File.readlines(
   File.expand_path("../../../data/2025/day01/#{ARGV[-1]}", __FILE__),
-  'rt'
-) { |f| data = f.readlines() }
+)
 
 
 def count_clicks(instructions)
