@@ -1,5 +1,3 @@
-require 'debug'
-
 data = File.readlines(
   File.expand_path("../../../data/2025/day02/#{ARGV[-1]}", __FILE__),
   sep=',',
