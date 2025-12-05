@@ -3,9 +3,8 @@
 #   - day1 + loop
 #     - convolute 2D with 3x3 kernel
 #     - elementwise slide & add 8 times
-#     - convolute 2x1D with 1x3 > 3x1
-#   - permutate coords, use as queue, append kerner coords on deletion
-require 'debug'
+#     - convolute 2x1D with 1x3 -> 3x1
+#   - permutate coords, use as queue, append kernel coords on deletion
 require 'matrix'
 
 data = File.readlines(
